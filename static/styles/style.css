@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.screen {
+    height: 100vh;
+    width: 100%;
+}
+
+.dashboard-item {
+    border: solid 1px #000;
+    border-radius: 10px;
+    padding: 20px
+}
+
+.dashboard-item.failed {
+    border-color: #FF0000;
+}
+
+.dashboard-item.failed h2 {
+    color: #FF0000;
+}
+
+.dashboard-item-2 {
+    width: 40%;
+    margin: 5% 5%;
+    min-height: 80vh;
+    float: left;
+}
+
+.jenkins-details {
+    font-size: 10px;
+}
+
+.jenkins-details .failure {
+    color: #FF0000;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.dashboard-item.show-spinner {
+    background: url("/static/images/spinner.gif") no-repeat center;
+}
+
