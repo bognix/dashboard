@@ -1,0 +1,35 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+    <body>
+    <div id="mainContainer" class="container" data-config="{{ json_config }}">
+    {% for screen in config.screens %}
+        <div id="{{ screen.id }}" class="screen hidden">
+            {% for item in screen.screen_items %}
+                <div id="{{ item }}" class="dashboard-item-{{ screen.items_count }} dashboard-item show-spinner"></div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+
+    {% raw %}
+    <script id="jenkinsResult" type="x-tmpl-mustache">
+        <h2>{{name}}</h2>
+        <p><span>Status: </span><span>{{status}}</span></p>
+        <p><span>Run date: </span><span>{{date}}</span></p>
+        <p><span>Last success date: </span><span>{{last_success}}</span></p>
+        {{#has_child_runs}}
+        <h3>Details</h3>
+        <div class="jenkins-details">
+        {{#child_runs}}
+            <p class="{{status}}"><span class="bold">{{name}}: </span><span>{{status}}</span></p>
+            <br/>
+        {{/child_runs}}
+        </div>
+        {{/has_child_runs}}
+    </script>
+    {% endraw %}
+    <script data-main="static/scripts/main" src="{{ url_for('static', filename='scripts/external/requirejs/require.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "jenkis-dashboard",
+  "version": "0.0.1",
+  "authors": [
+    "Bogna Knychala <bogna.ka@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.15",
+    "jquery": "~2.1.3",
+    "mustache": "~0.8.2"
+  }
+}

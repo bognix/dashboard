@@ -1,0 +1,21 @@
+{
+  "screens": [
+    {
+      "id": "consumerSeleniumTests",
+      "data_source": "jenkins",
+      "screen_items": ["venus-tables", "global-navigation"],
+      "items_count": 2
+    },
+    {
+      "id": "test",
+      "data_source": "jenkins",
+      "screen_items": ["jsUnit_trunkUnit", "phpUnit_trunkUnit"],
+      "items_count": 2
+    }
+  ],
+  "sources": {
+    "jenkins": {
+      "url": "http://qa-s2:8080"
+    }
+  }
+}
