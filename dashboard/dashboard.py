@@ -1,31 +1,24 @@
 import json
 from flask import Flask, jsonify
 from flask.templating import render_template
+from flask.ext.cache import Cache
 
 from jenkinsapi.jenkins import Jenkins
 from requests.exceptions import ConnectionError
-from flask import g
+
 
 app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 
+@cache.cached(key_prefix='jenkins_instance')
 def get_jenkins():
-    jenkins = getattr(g, '_jenkins', None)
-    if jenkins is None:
-        try:
-            jenkins = g._jenkins = Jenkins(get_config()['sources']['jenkins']['url'])
-        except ConnectionError:
-            jenkins = g._jenkins = None
-
-    return jenkins
+    return Jenkins(get_config()['sources']['jenkins']['url'])
 
 
+@cache.cached(key_prefix='config')
 def get_config():
-    config = getattr(g, '_config', None)
-    if config is None:
-        config = g._config = json.load(open('config.json'))
-
-    return config
+    return json.load(open('config.json'))
 
 
 @app.route('/')
