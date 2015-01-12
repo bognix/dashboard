@@ -8,6 +8,10 @@ body {
     padding: 0;
 }
 
+.dashboard-item.show-spinner {
+    background: url("/static/images/spinner.gif") no-repeat center;
+}
+
 .hidden {
     display: none;
 }
@@ -47,7 +51,7 @@ body {
     font-size: 10px;
 }
 
-.jenkins-details .failure {
+.jenkins-details .failed {
     color: #FF0000;
 }
 
@@ -55,7 +59,19 @@ body {
     font-weight: bold;
 }
 
-.dashboard-item.show-spinner {
-    background: url("/static/images/spinner.gif") no-repeat center;
+.results-visualization {
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+    width: 50%;
+}
+
+.results-visualization td {
+    background-color: #00FF00;
+}
+
+.results-visualization td.failed {
+    background-color: #FF0000;
 }
 
