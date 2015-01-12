@@ -19,15 +19,18 @@
         <p><span>Status: </span><span>{{status}}</span></p>
         <p><span>Run date: </span><span>{{date}}</span></p>
         <p><span>Last success date: </span><span>{{last_success}}</span></p>
-        {{#has_child_runs}}
+        <table class="results-visualization">
+            <tr></tr>
+        </table>
+        {{#has_failed_runs}}
         <h3>Details</h3>
         <div class="jenkins-details">
-        {{#child_runs}}
-            <p class="{{status}}"><span class="bold">{{name}}: </span><span>{{status}}</span></p>
+        {{#failed_runs}}
+            <p class="failed"><span class="bold">{{name}}</span></p>
             <br/>
-        {{/child_runs}}
+        {{/failed_runs}}
         </div>
-        {{/has_child_runs}}
+        {{/has_failed_runs}}
     </script>
     {% endraw %}
     <script data-main="static/scripts/main" src="{{ url_for('static', filename='scripts/external/requirejs/require.js') }}"></script>

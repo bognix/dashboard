@@ -26,12 +26,23 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
 
         request.done(function(jenkinsBuildData) {
             var rendered = mustache.render(template, jenkinsBuildData),
-                $dashboardItem;
+                $dashboardItem, resultsVisualizationRow;
 
             $dashboardItem = $screen.find('#' + jenkinsBuildData['name']);
             spinner.hideSpinner(jenkinsBuildData['name']);
             $dashboardItem.html(rendered);
 
+            resultsVisualizationRow = $dashboardItem.find('.results-visualization tr')[0];
+            for (var i=0; i < jenkinsBuildData['child_runs_count']; i++) {
+                var tdElement = document.createElement('td');
+                resultsVisualizationRow.appendChild(tdElement);
+            }
+
+            var resultsVisualizationCells;
+            resultsVisualizationCells = $dashboardItem.find('.results-visualization td');
+            for (var i=0; i<jenkinsBuildData['failed_runs'].length; i++) {
+                $(resultsVisualizationCells[i]).addClass('failed');
+            }
             if (jenkinsBuildData['status'] === 'FAILURE') {
                 $dashboardItem.addClass('failed');
             }
