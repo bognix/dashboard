@@ -1,9 +1,0 @@
-setup.py
-dashboard/__init__.py
-dashboard/dashboard.py
-dashboard.egg-info/PKG-INFO
-dashboard.egg-info/SOURCES.txt
-dashboard.egg-info/dependency_links.txt
-dashboard.egg-info/not-zip-safe
-dashboard.egg-info/requires.txt
-dashboard.egg-info/top_level.txt
