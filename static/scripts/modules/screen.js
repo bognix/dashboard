@@ -7,6 +7,9 @@ define('screen', ['jquery', 'jenkins', 'spinner', 'mustache'], function($, jenki
             case 'jenkins':
                 jenkins.createItems(screenConfig);
                 break;
+            //case 'iframe':
+            //    iframe.displayPage(screenConfig);
+            //    break;
             default:
                 throw new Error('Wrong data source provided');
                 break;
