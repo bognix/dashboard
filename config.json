@@ -1,9 +1,15 @@
 {
   "screens": [
     {
-      "id": "test",
+      "id": "unitTests",
       "data_source": "jenkins",
       "screen_items": ["jsUnit_trunkUnit", "phpUnit_trunkUnit"],
+      "items_count": 2
+    },
+    {
+      "id": "Selenium1",
+      "data_source": "jenkins",
+      "screen_items": ["global-navigation", "hubs"],
       "items_count": 2
     }
   ],
