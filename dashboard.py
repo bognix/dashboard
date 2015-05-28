@@ -1,6 +1,7 @@
 import json
 from flask import Flask, jsonify
 from flask.templating import render_template
+from jenkinsapi.custom_exceptions import NoBuildData
 
 from jenkinsapi.jenkins import Jenkins
 from requests.exceptions import ConnectionError
@@ -51,15 +52,23 @@ def get_build_data(build_name):
                     'name': current_build.name.split('\xbb')[1]
                 })
 
-    return jsonify({
+    return_val = {
         'name': build_name,
         'status': last_build.get_status(),
         'date': last_build.get_timestamp(),
-        'last_success': build.get_last_stable_build().get_timestamp(),
         'failed_runs': failed_runs,
         'has_failed_runs': (len(failed_runs) != 0),
         'child_runs_count': child_runs_count
-    })
+    }
+
+    try:
+        last_success = build.get_last_stable_build().get_timestamp(),
+    except NoBuildData:
+        last_success = 'UNKNOWN'
+
+    return_val['last_success'] = last_success
+
+    return jsonify(return_val)
 
 
 if __name__ == '__main__':
