@@ -41,15 +41,22 @@ body {
 }
 
 .dashboard-item-2 {
-    width: 40%;
-    margin: 5% 5%;
+    width: 40vw;
+    margin: 5vh 5vw;
     min-height: 80vh;
     float: left;
 }
 
+.dashboard-item-4 {
+    width: 40vw;
+    margin: 5vh 5vw;
+    height: 40vh;
+    float: left;
+}
+
 .dashboard-item-1 {
-    width: 90%;
-    margin: 5% 5%;
+    width: 90vw;
+    margin: 5vh 5vw;
     min-height: 80vh;
 }
 

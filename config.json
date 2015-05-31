@@ -3,13 +3,19 @@
     {
       "id": "unitTests",
       "data_source": "jenkins",
-      "screen_items": ["jsUnit_trunkUnit", "phpUnit_trunkUnit"],
+      "screen_items": ["jsUnit_trunkUnit", "phpUnit_trunkUnit", "jsIntegration_trunk", "phpUnit_trunkIntegration"],
+      "items_count": 4
+    },
+    {
+      "id": "globalNavigation",
+      "data_source": "jenkins",
+      "screen_items": ["global-navigation-search-and-logo", "global-navigation-tracking-hubs-gamestar"],
       "items_count": 2
     },
     {
-      "id": "Selenium1",
+      "id": "wamAndHubs",
       "data_source": "jenkins",
-      "screen_items": ["global-navigation", "hubs"],
+      "screen_items": ["wam", "hubs"],
       "items_count": 2
     }
   ],
