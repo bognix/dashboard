@@ -26,25 +26,25 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
 
         request.done(function(jenkinsBuildData) {
             var rendered = mustache.render(template, jenkinsBuildData),
-                $dashboardItem, resultsVisualizationRow;
+                failedCount = jenkinsBuildData['failed_runs'].length, $dashboardItem, $counter;
 
             $dashboardItem = $screen.find('#' + jenkinsBuildData['name']);
             spinner.hideSpinner(jenkinsBuildData['name']);
             $dashboardItem.html(rendered);
 
-            resultsVisualizationRow = $dashboardItem.find('.results-visualization tr')[0];
-            for (var i=0; i < jenkinsBuildData['child_runs_count']; i++) {
-                var tdElement = document.createElement('td');
-                resultsVisualizationRow.appendChild(tdElement);
+            $counter = $($dashboardItem.find('.results-counter')[0]);
+            if (jenkinsBuildData['child_runs_count'] > 0) {
+                $counter.text(failedCount + '/' + jenkinsBuildData['child_runs_count']);
+
+                if (failedCount > 0) {
+                    $counter.addClass('failed');
+                } else {
+                    $counter.addClass('success');
+                }
             }
 
-            var resultsVisualizationCells;
-            resultsVisualizationCells = $dashboardItem.find('.results-visualization td');
-            for (var i=0; i<jenkinsBuildData['failed_runs'].length; i++) {
-                $(resultsVisualizationCells[i]).addClass('failed');
-            }
             if (jenkinsBuildData['status'] === 'FAILURE') {
-                $dashboardItem.addClass('failed');
+                $dashboardItem.find('h2').addClass('failed');
             }
         });
     }
