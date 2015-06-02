@@ -15,8 +15,10 @@
 
     {% raw %}
     <script id="jenkinsResult" type="x-tmpl-mustache">
-        <h2>{{name}}</h2>
-        <div class="results-counter"></div>
+        <div class="header">
+            <h2 class="heading">{{name}}</h2>
+            <div class="results-counter"></div>
+        </div>
         <div><span>Status: </span><span>{{status}}</span></div>
         <div><span>Run date: </span><span>{{date}}</span></div>
         <div><span>Last success date: </span><span>{{last_success}}</span></div>

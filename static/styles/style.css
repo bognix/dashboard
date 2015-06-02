@@ -9,8 +9,13 @@ body {
     padding: 0;
 }
 
-h2 {
+.header {
+    overflow: hidden;
+}
+
+.heading {
     display: inline-block;
+    float: left;
     width: 70%;
 }
 

@@ -1,12 +1,6 @@
 {
   "screens": [
     {
-      "id": "unitTests",
-      "data_source": "jenkins",
-      "screen_items": ["jsUnit_trunkUnit", "phpUnit_trunkUnit", "jsIntegration_trunk", "phpUnit_trunkIntegration"],
-      "items_count": 4
-    },
-    {
       "id": "globalNavigationWamHubs",
       "data_source": "jenkins",
       "screen_items": ["global-navigation-search-and-logo", "global-navigation-tracking-hubs-gamestar", "wam", "hubs"],
