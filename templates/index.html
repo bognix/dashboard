@@ -16,19 +16,18 @@
     {% raw %}
     <script id="jenkinsResult" type="x-tmpl-mustache">
         <h2>{{name}}</h2>
-        <p><span>Status: </span><span>{{status}}</span></p>
-        <p><span>Run date: </span><span>{{date}}</span></p>
-        <p><span>Last success date: </span><span>{{last_success}}</span></p>
-        <table class="results-visualization">
-            <tr></tr>
-        </table>
+        <div class="results-counter"></div>
+        <div><span>Status: </span><span>{{status}}</span></div>
+        <div><span>Run date: </span><span>{{date}}</span></div>
+        <div><span>Last success date: </span><span>{{last_success}}</span></div>
         {{#has_failed_runs}}
         <h3>Details</h3>
         <div class="jenkins-details">
+        <ul>
         {{#failed_runs}}
-            <p class="failed"><span class="bold">{{name}}</span></p>
-            <br/>
+            <li class="failed"><span class="bold">{{name}}</span></li>
         {{/failed_runs}}
+        </ul>
         </div>
         {{/has_failed_runs}}
     </script>
