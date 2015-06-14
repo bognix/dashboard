@@ -3,14 +3,12 @@
     {
       "id": "globalNavigationWamHubs",
       "data_source": "jenkins",
-      "screen_items": ["global-navigation-search-and-logo", "global-navigation-tracking-hubs-gamestar", "wam", "hubs"],
-      "items_count": 4
+      "screen_items": ["global-navigation-search-and-logo", "global-navigation-tracking-hubs-gamestar", "wam", "hubs"]
     },
     {
-      "id": "social",
+      "id": "socialVideo",
       "data_source": "jenkins",
-      "screen_items": ["social-share", "video-special-page", "videos-module", "video-home-page"],
-      "items_count": 4
+      "screen_items": ["social-share", "video-special-page", "videos-module", "video-home-page"]
     }
   ],
   "sources": {

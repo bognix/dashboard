@@ -58,13 +58,14 @@ def get_build_data(build_name):
         'date': last_build.get_timestamp(),
         'failed_runs': failed_runs,
         'has_failed_runs': (len(failed_runs) != 0),
-        'child_runs_count': child_runs_count
+        'child_runs_count': child_runs_count,
+        'failure_percentage': len(failed_runs) * 100 / child_runs_count
     }
 
     try:
         last_success = build.get_last_stable_build().get_timestamp(),
     except NoBuildData:
-        last_success = 'UNKNOWN'
+        last_success = '???'
 
     return_val['last_success'] = last_success
 
