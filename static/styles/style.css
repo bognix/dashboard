@@ -46,7 +46,7 @@ body {
 }
 
 .dashboard-item {
-    border: solid 1px #000;
+    border: 1px solid #000;
     border-radius: 10px;
     padding: 20px
 }
@@ -60,7 +60,7 @@ body {
 }
 
 .success {
-    color: #00FF00;
+    color: yellowgreen;
 }
 
 .dashboard-item-2 {
@@ -89,4 +89,23 @@ body {
 
 .bold {
     font-weight: bold;
+}
+
+svg {
+    width: 100px;
+    height: 100px;
+    transform: rotate(-90deg);
+    background: yellowgreen;
+    border-radius: 50%;
+}
+
+circle {
+    fill: yellowgreen;
+    stroke: red;
+    stroke-width: 32;
+}
+
+.pie {
+    display: inline-block;
+    float: right;
 }

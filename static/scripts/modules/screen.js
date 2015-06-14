@@ -1,11 +1,10 @@
-define('screen', ['jquery', 'jenkins', 'spinner', 'mustache'], function($, jenkins, spinner, mustache) {
+define('screen', ['jquery', 'jenkins', 'spinner', 'mustache', 'pie-chart'], function($, jenkins, spinner, mustache, pieChart) {
     'use strict';
 
     function createScreen(screenConfig) {
-
         switch (screenConfig['data_source']) {
             case 'jenkins':
-                jenkins.createItems(screenConfig);
+                jenkins.createItems(screenConfig, pieChart.drawPies);
                 break;
             default:
                 throw new Error('Wrong data source provided');

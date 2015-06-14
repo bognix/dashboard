@@ -10,18 +10,18 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
         });
     }
 
-    function createItems(screenConfig) {
+    function createItems(screenConfig, cb) {
         var $screen = $(document.getElementById(screenConfig['id'])),
             items = screenConfig['screen_items'];
 
         if (items) {
             for (var i=0; i<items.length; i++) {
-                createItem(items[i], $screen);
+                createItem(items[i], $screen, cb);
             }
         }
     }
 
-    function createItem(item, $screen) {
+    function createItem(item, $screen, cb) {
         var request = getRequest(item);
 
         request.done(function(jenkinsBuildData) {
@@ -48,6 +48,7 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
             } else {
                 $dashboardItem.find('h2').addClass('success');
             }
+            cb();
         });
     }
 
