@@ -101,6 +101,7 @@ circle {
 }
 
 .right-column {
+    padding-top: 10px;
     float: right;
     text-align: center;
     width: 15%;
