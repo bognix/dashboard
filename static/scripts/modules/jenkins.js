@@ -35,12 +35,6 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
             $counter = $($dashboardItem.find('.results-counter')[0]);
             if (jenkinsBuildData['child_runs_count'] > 0) {
                 $counter.text(failedCount + '/' + jenkinsBuildData['child_runs_count']);
-
-                if (failedCount > 0) {
-                    $counter.addClass('failed');
-                } else {
-                    $counter.addClass('success');
-                }
             }
 
             if (jenkinsBuildData['status'] === 'FAILURE') {

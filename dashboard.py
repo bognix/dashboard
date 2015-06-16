@@ -21,7 +21,9 @@ def get_config():
 @app.route('/')
 def index():
     config_data = get_config()
-    return render_template('index.html', config=config_data, json_config=json.dumps(config_data))
+    screens_count = len(config_data['screens'])
+    return render_template(
+        'index.html', config=config_data, json_config=json.dumps(config_data), screens_count=screens_count)
 
 
 @app.route('/jenkins_results/<build_name>', methods=['GET'])

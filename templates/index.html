@@ -11,27 +11,34 @@
             {% endfor %}
         </div>
     {% endfor %}
+        <div class="pagination"><span id="currentPage">1</span>/{{ screens_count }}</div>
     </div>
 
     {% raw %}
     <script id="jenkinsResult" type="x-tmpl-mustache">
-        <div class="header">
-            <h2 class="heading">{{name}}</h2>
-            <div class="pie">{{failure_percentage}}%</div>
-            <div class="results-counter"></div>
-        </div>
-        <div><span>Run date: </span><span>{{date}}</span></div>
-        <div><span>Last success date: </span><span>{{last_success}}</span></div>
-        {{#has_failed_runs}}
-            <h4>Details</h3>
-            <div class="jenkins-details">
-            <ul>
-            {{#failed_runs}}
-                <li class="failed"><span class="bold">{{name}}</span></li>
-            {{/failed_runs}}
-            </ul>
+        <div class="left-column">
+            <div class="header">
+                <h2 class="heading">{{name}}</h2>
             </div>
-        {{/has_failed_runs}}
+            <div><div class="last-run icon"></div><span class="value">{{date}}</span></div>
+            <div><div class="last-success icon"></div><span class="value">{{last_success}}</span></div>
+            {{#has_failed_runs}}
+                <div class="failed-tests-label">Failed tests:</div>
+                <div class="jenkins-details">
+                <ul>
+                {{#failed_runs}}
+                    <li class="list-item"><span class="bold">{{name}}</span></li>
+                {{/failed_runs}}
+                </ul>
+                </div>
+            {{/has_failed_runs}}
+        </div>
+        <div class="right-column">
+            <div class="header-right">
+                <div class="pie">{{failure_percentage}}%</div>
+                <div class="results-counter"></div>
+            </div>
+        </div>
     </script>
     {% endraw %}
     <script data-main="static/scripts/main" src="{{ url_for('static', filename='scripts/external/requirejs/require.js') }}"></script>
