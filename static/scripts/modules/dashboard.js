@@ -22,7 +22,6 @@ define('dashboard', ['jquery', 'screen'], function($, screen){
             screen.createScreen(screenConfig);
             screensIdList.push(screenConfig['id']);
         }
-
     }
 
     function showScreen(id) {
@@ -35,13 +34,21 @@ define('dashboard', ['jquery', 'screen'], function($, screen){
     }
 
     function showNextScreen() {
-        var currentIndex = screensIdList.indexOf(activeScreen);
+        var currentIndex = screensIdList.indexOf(activeScreen) + 1;
 
-        if (currentIndex + 1 < screensIdList.length) {
-            showScreen(screensIdList[currentIndex+1]);
+        if (currentIndex < screensIdList.length) {
+            showScreen(screensIdList[currentIndex]);
+            currentIndex += 1;
         } else {
+            currentIndex = 1;
             showScreen(screensIdList[0]);
         }
+
+        updatePagination(currentIndex);
+    }
+
+    function updatePagination(index) {
+        $('#currentPage').text(index);
     }
 
     function switchOnScreenRotation() {
