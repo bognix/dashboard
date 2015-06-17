@@ -20,14 +20,14 @@
             <div class="header">
                 <h2 class="heading">{{name}}</h2>
             </div>
-            <div><div class="last-run icon"></div><span class="value">{{date}}</span></div>
-            <div><div class="last-success icon"></div><span class="value">{{last_success}}</span></div>
+            <div><div class="last-run icon"></div><span class="value bold">{{hours_ago}}h ago</span></div>
+            <div><div class="last-success icon"></div><span class="value bold">{{last_success}}h ago</span></div>
             {{#has_failed_runs}}
                 <div class="failed-tests-label">Failed tests:</div>
                 <div class="jenkins-details">
                 <ul>
                 {{#failed_runs}}
-                    <li class="list-item"><span class="bold">{{name}}</span></li>
+                    <li class="list-item"><span>{{name}}</span></li>
                 {{/failed_runs}}
                 </ul>
                 </div>
