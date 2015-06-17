@@ -6,7 +6,13 @@ define('spinner', ['jquery'], function($) {
         placeholder.removeClass('show-spinner');
     }
 
+    function showSpinner(groupName) {
+        var placeholder = $('#' + groupName);
+        placeholder.addClass('show-spinner');
+    }
+
     return {
-        hideSpinner: hideSpinner
+        hideSpinner: hideSpinner,
+        showSpinner: showSpinner
     }
 });

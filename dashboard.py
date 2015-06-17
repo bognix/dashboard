@@ -1,4 +1,6 @@
+from StdSuites.Standard_Suite import _3c_
 import json
+import datetime
 from flask import Flask, jsonify
 from flask.templating import render_template
 from jenkinsapi.custom_exceptions import NoBuildData
@@ -51,13 +53,13 @@ def get_build_data(build_name):
             child_runs_count += 1
             if current_build.get_number() == last_build_number and current_build.get_status() == 'FAILURE':
                 failed_runs.append({
-                    'name': current_build.name.split('\xbb')[1]
+                    'name': current_build.name.split('\xbb')[1].split(',')[0]
                 })
 
     return_val = {
         'name': build_name,
         'status': last_build.get_status(),
-        'date': last_build.get_timestamp(),
+        'hours_ago': get_time_ago(last_build.get_timestamp()),
         'failed_runs': failed_runs,
         'has_failed_runs': (len(failed_runs) != 0),
         'child_runs_count': child_runs_count,
@@ -65,7 +67,7 @@ def get_build_data(build_name):
     }
 
     try:
-        last_success = build.get_last_stable_build().get_timestamp(),
+        last_success = get_time_ago(build.get_last_stable_build().get_timestamp()),
     except NoBuildData:
         last_success = '???'
 
@@ -73,6 +75,9 @@ def get_build_data(build_name):
 
     return jsonify(return_val)
 
+def get_time_ago(run_date):
+    return int((datetime.datetime.utcnow().replace(tzinfo=None)
+         - run_date.replace(tzinfo=None)).total_seconds() / 3600)
 
 if __name__ == '__main__':
     app.debug = True
