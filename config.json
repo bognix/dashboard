@@ -11,6 +11,12 @@
       "data_source": "jenkins",
       "screen_items": ["social-share", "video-special-page", "videos-module", "video-home-page"],
       "update_interval": 360000
+    },
+    {
+      "id": "scrollableModalsVideo",
+      "data_source": "jenkins",
+      "screen_items": ["scrollable-gallery-modal", "lightbox", "play-video", "special-videos"],
+      "update_interval": 360000
     }
   ],
   "sources": {
