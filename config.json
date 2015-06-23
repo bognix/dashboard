@@ -3,7 +3,7 @@
     {
       "id": "globalNavigationWamHubs",
       "data_source": "jenkins",
-      "screen_items": ["global-navigation-search-and-logo", "global-navigation-tracking-hubs-gamestar", "wam", "hubs"],
+      "screen_items": ["global-navigation-search-and-logo", "global-navigation-hubs-gamestar", "wam", "hubs"],
       "update_interval": 360000
     },
     {
@@ -16,6 +16,12 @@
       "id": "scrollableModalsVideo",
       "data_source": "jenkins",
       "screen_items": ["scrollable-gallery-modal", "lightbox", "play-video", "special-videos"],
+      "update_interval": 360000
+    },
+    {
+      "id": "articleSourceClickTracking",
+      "data_source": "jenkins",
+      "screen_items": ["click-tracking", "article-toc", "article-source-mode", "article-rte"],
       "update_interval": 360000
     }
   ],
