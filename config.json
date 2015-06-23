@@ -19,11 +19,30 @@
       "update_interval": 360000
     },
     {
-      "id": "articleSourceClickTracking",
+      "id": "articleSourceEditHub",
       "data_source": "jenkins",
-      "screen_items": ["click-tracking", "article-toc", "article-source-mode", "article-rte"],
+      "screen_items": ["edit-hub", "article-toc", "article-source-mode", "article-rte"],
+      "update_interval": 360000
+    },
+    {
+      "id": "articleCRUD",
+      "data_source": "jenkins",
+      "screen_items": ["article-features-crud-user", "article-features-crud-anon", "article-crud-anon", "article-crud-user"],
+      "update_interval": 360000
+    },
+    {
+      "id": "follow",
+      "data_source": "jenkins",
+      "screen_items": ["follow-article", "follow-blog", "follow-photos", "follow-videos"],
+      "update_interval": 360000
+    },
+    {
+      "id": "clicktrackingHeroGG",
+      "data_source": "jenkins",
+      "screen_items": ["click-tracking-article-edit-mode", "global-navigation-click-tracking", "hero-module", "game-guides-preview"],
       "update_interval": 360000
     }
+
   ],
   "sources": {
     "jenkins": {
