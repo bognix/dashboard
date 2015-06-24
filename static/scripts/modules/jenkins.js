@@ -23,8 +23,18 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
     }
 
     function createItem(item, $screen, updateInterval, cb) {
-        var request = getRequest(item);
+        var intervalID;
 
+        updateDashboard(item, $screen, cb);
+
+        setInterval(function() {
+            spinner.showSpinner(item);
+            updateDashboard(item, $screen, cb);
+        }, updateInterval)
+    }
+
+    function updateDashboard(item, $screen, cb) {
+        var request = getRequest(item);
         request.done(function(jenkinsBuildData) {
             var rendered = mustache.render(template, jenkinsBuildData),
                 failedCount = jenkinsBuildData['failed_runs'].length, $dashboardItem, $counter;
@@ -43,33 +53,10 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
             } else {
                 $dashboardItem.find('h2').addClass('success');
             }
+
+            //call callback
             cb();
         });
-
-        setInterval(function() {
-            spinner.showSpinner(item);
-            var request = getRequest(item);
-            request.done(function(jenkinsBuildData) {
-                var rendered = mustache.render(template, jenkinsBuildData),
-                    failedCount = jenkinsBuildData['failed_runs'].length, $dashboardItem, $counter;
-
-                $dashboardItem = $screen.find('#' + jenkinsBuildData['name']);
-                spinner.hideSpinner(jenkinsBuildData['name']);
-                $dashboardItem.html(rendered);
-
-                $counter = $($dashboardItem.find('.results-counter')[0]);
-                if (jenkinsBuildData['child_runs_count'] > 0) {
-                    $counter.text(failedCount + '/' + jenkinsBuildData['child_runs_count']);
-                }
-
-                if (jenkinsBuildData['status'] === 'FAILURE') {
-                    $dashboardItem.find('h2').addClass('failed');
-                } else {
-                    $dashboardItem.find('h2').addClass('success');
-                }
-                cb();
-            });
-        }, updateInterval)
     }
 
     return {
