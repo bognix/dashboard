@@ -1,7 +1,8 @@
-define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustache) {
+define('jenkins', ['jquery', 'spinner', 'mustache', 'infinite-scroll'], function($, spinner, mustache, infiniteScroll, undefined) {
     'use strict';
 
-    var template = $('#jenkinsResult').html();
+    var template = $('#jenkinsResult').html(),
+        intervalIDs = {};
 
     function getRequest(groupName) {
         return $.ajax({
@@ -23,8 +24,6 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
     }
 
     function createItem(item, $screen, updateInterval, cb) {
-        var intervalID;
-
         updateDashboard(item, $screen, cb);
 
         setInterval(function() {
@@ -56,7 +55,28 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
 
             //call callback
             cb();
+            updateInfiniteScroll(item);
         });
+    }
+
+    function updateInfiniteScroll(item) {
+        var $item = $('#' + item),
+            $contentHeight = $item.find('.left-column').height(),
+            $failedList = $item.find('.failed-list'),
+            intervalID;
+
+        if ($item.height() < $contentHeight) {
+            $failedList.addClass('too-long');
+            intervalID = infiniteScroll.addInfiniteScrollToElement($failedList);
+            intervalIDs[item] = intervalID;
+        } else {
+            $failedList.removeClass('too-long');
+            if (intervalIDs[item]) {
+                intervalID = intervalIDs[item];
+                infiniteScroll.removeInfiniteScrollByIntervalID(intervalID);
+                intervalIDs[item] = undefined;
+            }
+        }
     }
 
     return {

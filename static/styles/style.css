@@ -161,3 +161,8 @@ ul {
     text-align: center;
     width: 100%;
 }
+
+.failed-list.too-long {
+    max-height: 50%;
+    overflow: auto;
+}

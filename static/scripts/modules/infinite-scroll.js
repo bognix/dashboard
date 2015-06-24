@@ -1,4 +1,5 @@
 define('infinite-scroll', function() {
+    'use strict';
 
     function addInfiniteScrollToElement($element) {
         var scrollDuration = 5000,
