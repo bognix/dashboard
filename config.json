@@ -18,6 +18,12 @@
       "screen_items": ["scrollable-gallery-modal", "lightbox", "play-video", "special-videos"],
       "update_interval": 360000
     },
+     {
+      "id": "curatedContent",
+      "data_source": "jenkins",
+      "screen_items": ["curated-content"],
+      "update_interval": 360000
+    },
     {
       "id": "articleSourceEditHub",
       "data_source": "jenkins",
