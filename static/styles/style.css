@@ -68,7 +68,7 @@ body {
 .dashboard-item-1 {
     width: 90vw;
     margin: 5vh 5vw;
-    min-height: 80vh;
+    height: 90vh;
 }
 
 .jenkins-details {
