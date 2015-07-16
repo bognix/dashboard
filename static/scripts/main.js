@@ -9,5 +9,5 @@ require.config({
 
 requirejs(['dashboard'], function(dasboard) {
     dasboard.create();
-    // dasboard.switchOnScreenRotation();
+     dasboard.switchOnScreenRotation();
 });
