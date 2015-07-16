@@ -30,11 +30,6 @@ body {
     top: 0;
 }
 
-.screen {
-    height: 100vh;
-    width: 100%;
-}
-
 .dashboard-item {
     border: 1px solid #000;
     border-radius: 10px;
