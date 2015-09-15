@@ -62,6 +62,26 @@ body {
     float: left;
 }
 
+.dashboard-item-6 {
+    width: 23vw;
+    margin: 1vh 1vw;
+    height: 40vh;
+    float: left;
+}
+
+.dashboard-item-6 svg {
+    width: 75px;
+    height: 75px;
+}
+
+.dashboard-item-6 .left-column {
+    width: 70%;
+}
+
+.dashboard-item-6 .right-column {
+    width: 30%;
+}
+
 .dashboard-item-1 {
     width: 90vw;
     margin: 5vh 5vw;

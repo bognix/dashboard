@@ -1,54 +1,11 @@
 {
   "screens": [
     {
-      "id": "globalNavigationWamHubs",
+      "id": "Widgets1",
       "data_source": "jenkins",
-      "screen_items": ["global-navigation-search-and-logo", "global-navigation-hubs-gamestar", "wam", "hubs"],
-      "update_interval": 360000
-    },
-    {
-      "id": "socialVideo",
-      "data_source": "jenkins",
-      "screen_items": ["social-share", "video-special-page", "videos-module", "video-home-page"],
-      "update_interval": 360000
-    },
-    {
-      "id": "scrollableModalsVideo",
-      "data_source": "jenkins",
-      "screen_items": ["scrollable-gallery-modal", "lightbox", "play-video", "special-videos"],
-      "update_interval": 360000
-    },
-    {
-      "id": "curatedContent",
-      "data_source": "jenkins",
-      "screen_items": ["curated-content"],
-      "update_interval": 360000
-    },
-    {
-      "id": "articleSourceEditHub",
-      "data_source": "jenkins",
-      "screen_items": ["edit-hub", "article-toc", "article-source-mode", "article-rte"],
-      "update_interval": 360000
-    },
-    {
-      "id": "articleCRUD",
-      "data_source": "jenkins",
-      "screen_items": ["article-features-crud-user", "article-features-crud-anon", "article-crud-anon", "article-crud-user"],
-      "update_interval": 360000
-    },
-    {
-      "id": "follow",
-      "data_source": "jenkins",
-      "screen_items": ["follow-article", "follow-blog", "follow-photos", "follow-videos"],
-      "update_interval": 360000
-    },
-    {
-      "id": "clicktrackingHeroGG",
-      "data_source": "jenkins",
-      "screen_items": ["click-tracking-article-edit-mode", "global-navigation-click-tracking", "hero-module", "game-guides-preview"],
+      "screen_items": ["vk-widget", "twitter-widget", "weibo-widget", "soundcloud-widget", "spotify-widget", "pollsnack-widget"],
       "update_interval": 360000
     }
-
   ],
   "sources": {
     "jenkins": {
