@@ -10,6 +10,9 @@
   "sources": {
     "jenkins": {
       "url": "http://qa-s2:8080"
+    },
+    "jenkins-api": {
+      "url": "http://api-test-s1:8080"
     }
   }
 }
