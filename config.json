@@ -4,7 +4,7 @@
       "id": "Widgets1",
       "data_source": "jenkins",
       "screen_items": [
-        "Widget-allTags"],
+        "Widget-allTags",
         "Widget-googleForm",
         "Widget-polldaddy",
         "Widget-pollsnack",
@@ -13,6 +13,7 @@
         "Widget-twitter",
         "Widget-vk",
         "Widget-weibo",
+      ]
       "update_interval": 360000
     }
   ],
