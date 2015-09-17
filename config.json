@@ -3,7 +3,17 @@
     {
       "id": "Widgets1",
       "data_source": "jenkins",
-      "screen_items": ["vk-widget", "twitter-widget", "weibo-widget", "soundcloud-widget", "spotify-widget", "pollsnack-widget", "googleform-widget", "all-widgets"],
+      "screen_items": [
+        "Widget-AllTags",
+        "Widget-GoogleForm",
+        "Widget-Polldaddy",
+        "Widget-Pollsnack",
+        "Widget-SoundCloud",
+        "Widget-Spotify",
+        "Widget-Twitter",
+        "Widget-VK",
+        "Widget-Weibo",
+      ],
       "update_interval": 360000
     }
   ],
