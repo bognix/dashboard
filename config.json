@@ -12,7 +12,7 @@
         "Widget-Spotify",
         "Widget-Twitter",
         "Widget-VK",
-        "Widget-Weibo",
+        "Widget-Weibo"
       ],
       "update_interval": 360000
     }
