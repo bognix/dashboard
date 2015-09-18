@@ -62,23 +62,23 @@ body {
     float: left;
 }
 
-.dashboard-item-6, .dashboard-item-7, .dashboard-item-8 {
+.dashboard-item-6, .dashboard-item-7, .dashboard-item-8, .dashboard-item-9 {
     width: 30vw;
     margin: 1vh 1vw;
     height: 20vh;
     float: left;
 }
 
-.dashboard-item-6 svg, .dashboard-item-7 svg, .dashboard-item-8 svg {
+.dashboard-item-6 svg, .dashboard-item-7 svg, .dashboard-item-8 svg, .dashboard-item-9 svg {
     width: 75px;
     height: 75px;
 }
 
-.dashboard-item-6 .left-column, .dashboard-item-7 .left-column, .dashboard-item-8 .left-column {
+.dashboard-item-6 .left-column, .dashboard-item-7 .left-column, .dashboard-item-8 .left-column, .dashboard-item-9 .left-column {
     width: 70%;
 }
 
-.dashboard-item-6 .right-column, .dashboard-item-7 .right-column, .dashboard-item-8 .right-column {
+.dashboard-item-6 .right-column, .dashboard-item-7 .right-column, .dashboard-item-8 .right-column, .dashboard-item-9 .right-column {
     width: 30%;
 }
 
