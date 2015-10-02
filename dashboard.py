@@ -4,6 +4,7 @@ from flask import Flask, jsonify
 from flask.templating import render_template
 from jenkinsapi.custom_exceptions import NoBuildData
 import os
+import argparse
 
 from jenkinsapi.jenkins import Jenkins
 from requests.exceptions import ConnectionError
@@ -26,8 +27,9 @@ def get_config():
 def index():
     config_data = get_config()
     screens_count = len(config_data['screens'])
+    orientation = app.screen_orientation
     return render_template(
-        'index.html', config=config_data, json_config=json.dumps(config_data), screens_count=screens_count)
+        'index.html', config=config_data, json_config=json.dumps(config_data), screens_count=screens_count, orientation=orientation)
 
 
 @app.route('/jenkins_results/<build_name>', methods=['GET'])
@@ -129,5 +131,9 @@ def get_time_ago(run_date):
          - run_date.replace(tzinfo=None)).total_seconds() / 3600)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Screen orientation.')
+    parser.add_argument('--orientation', metavar='O', type=str, required=False, default='horizontal',
+                   help='Screen Orientation - possible values: horizontal, vertical')
     app.debug = True
+    app.screen_orientation = parser.parse_args().orientation
     app.run()
