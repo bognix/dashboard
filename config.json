@@ -15,6 +15,14 @@
         "Widget-Weibo"
       ],
       "update_interval": 360000
+    },
+    {
+      "id": "Others1",
+      "data_source": "jenkins",
+      "screen_items": [
+        "Mercury-Phantomas"
+      ],
+      "update_interval": 360000
     }
   ],
   "sources": {
