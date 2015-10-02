@@ -16,3 +16,17 @@ or using twisted which is WSGI container and supports more threads than "dev mod
 ```
 twistd -n web --port 8080 --wsgi dashboard.app
 ```
+
+There is a possibility to pass screen orientation via command line
+```
+> python dashboard.py --help
+
+usage: dashboard.py [-h] [--orientation O]
+
+Screen orientation.
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --orientation O  Screen Orientation - possible values: horizontal, vertical
+```
+It sets the class on body and adjusts widgets layout on screen
