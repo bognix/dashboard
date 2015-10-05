@@ -67,7 +67,7 @@ def get_build_data(build_name):
         'failed_runs': failed_runs,
         'has_failed_runs': (len(failed_runs) != 0),
         'child_runs_count': child_runs_count,
-        'failure_percentage': len(failed_runs) * 100 / child_runs_count
+        'failure_percentage': len(failed_runs) * 100 / child_runs_count if (len(failed_runs) != 0) else 0
     }
 
     try:
