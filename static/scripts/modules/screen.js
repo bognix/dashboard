@@ -2,7 +2,6 @@ define('screen', ['jquery', 'jenkins', 'spinner', 'mustache', 'pie-chart'], func
     'use strict';
 
     function createScreen(screenConfig) {
-        console.log(screenConfig);
         switch (screenConfig['data_source']) {
             case 'jenkins':
             case 'jenkins-api':
