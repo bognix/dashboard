@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
 </head>
-    <body class="{{orientation}}">
+    <body>
     <div id="mainContainer" class="container" data-config="{{ json_config }}">
     {% for screen in config.screens %}
         <div id="{{ screen.id }}" class="screen hidden">
