@@ -25,7 +25,10 @@ def get_config():
     return json.load(open('config.json'))
 
 def get_item_config(build_name):
-    return get_config()['items'][build_name]
+    config = get_config()
+    if config.has_key('items') and config['items'].has_key(build_name):
+        return config['items'][build_name]
+    return {}
 
 @app.route('/')
 def index():
