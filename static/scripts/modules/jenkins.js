@@ -1,11 +1,12 @@
 define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustache) {
     'use strict';
 
-    var template = $('#jenkinsResult').html();
+    var template = $('#jenkinsResult').html(),
+        jenkinsName;
 
     function getRequest(groupName) {
         return $.ajax({
-            url: 'jenkins_results/' + groupName,
+            url: 'jenkins_results/' + jenkinsName + '/' + groupName,
             dataType: 'json'
         });
     }
@@ -14,6 +15,8 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
         var $screen = $(document.getElementById(screenConfig['id'])),
             items = screenConfig['screen_items'],
             updateInterval = screenConfig['update_interval'];
+
+        jenkinsName = screenConfig['data_source'];
 
         if (items) {
             for (var i=0; i<items.length; i++) {
