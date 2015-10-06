@@ -22,6 +22,9 @@
             </div>
             <div><div class="last-run icon"></div><span class="value bold">{{hours_ago}}h ago</span></div>
             <div><div class="last-success icon"></div><span class="value bold">{{last_success}}h ago</span></div>
+            {{#artifact_output}}
+                <pre> {{artifact_output}} </pre>
+            {{/artifact_output}}
             {{#has_failed_runs}}
                 <div class="failed-tests-label">Failed tests:</div>
                 <div class="jenkins-details">

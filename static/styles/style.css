@@ -3,6 +3,12 @@
     -moz-box-sizing: border-box;
 }
 
+pre {
+    font-size: 18px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
 body {
     font-family: sans-serif;
     margin: 0;
