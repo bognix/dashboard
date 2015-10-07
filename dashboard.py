@@ -4,6 +4,7 @@ from flask import Flask, jsonify
 from flask.templating import render_template
 from jenkinsapi.custom_exceptions import NoBuildData
 import os
+import DashboardConfig
 
 from jenkinsapi.jenkins import Jenkins
 from jenkinsapi.artifact import Artifact
@@ -22,7 +23,7 @@ def get_jenkins(jenkins_name):
     return Jenkins(jenkins_config['url'])
 
 def get_config():
-    return json.load(open('config.json'))
+    return DashboardConfig().get_config()
 
 def get_item_config(build_name):
     config = get_config()
