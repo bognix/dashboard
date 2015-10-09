@@ -79,11 +79,11 @@ body {
 }
 
 .dashboald-item-9 {
-    height: 30vh;
+    height: 30vh !important;
 }
 
 .dashboald-item-11 {
-    height: 22vh;
+    height: 22vh !important;
 }
 
 .dashboard-item-6 svg, .dashboard-item-7 svg, .dashboard-item-8 svg, .dashboard-item-9 svg, .dashboard-item-11 svg {
