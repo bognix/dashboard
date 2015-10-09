@@ -58,7 +58,6 @@ def get_build_data(jenkins_name, build_name):
         'hours_ago': get_time_ago(last_build.get_timestamp()),
     }
 
-    print return_val['status']
     if item_config.has_key('artifact'):
         output = Artifact('output', item_config['artifact'], last_build).get_data()
         return_val['artifact_output'] = output
