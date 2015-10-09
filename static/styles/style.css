@@ -71,19 +71,25 @@ body {
     float: left;
 }
 
-.dashboard-item-6, .dashboard-item-7, .dashboard-item-8, .dashboard-item-9, .dashboard-item-11 {
-    width: 30vw;
+.dashboard-item-6, .dashboard-item-7, .dashboard-item-8 {
+    width: 32vw;
     margin: 1vh 1vw;
     height: 20vh;
     float: left;
 }
 
-.dashboald-item-9 {
-    height: 30vh !important;
+.dashboard-item-9 {
+    width: 31%;
+    margin: 1vh 1vw;
+    float: left;
+    height: 30vh;
 }
 
-.dashboald-item-11 {
-    height: 22vh !important;
+.dashboard-item-11 {
+    width: 31%;
+    margin: 1vh 1vw;
+    float: left;
+    height: 22vh;
 }
 
 .dashboard-item-6 svg, .dashboard-item-7 svg, .dashboard-item-8 svg, .dashboard-item-9 svg, .dashboard-item-11 svg {
