@@ -44,7 +44,7 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
                 $($dashboardItem.find('.pie')[0]).hide();
             }
 
-            if (jenkinsBuildData['status'] === 'FAILURE') {
+            if (jenkinsBuildData['status'] === 'FAILURE' || jenkinsBuildData['status'] === 'UNSTABLE') {
                 $dashboardItem.find('h2').addClass('failed');
             } else {
                 $dashboardItem.find('h2').addClass('success');
@@ -57,7 +57,7 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
             var request = getRequest(item);
             request.done(function(jenkinsBuildData) {
                 var rendered = mustache.render(template, jenkinsBuildData),
-                $dashboardItem, $counter, failedCount;
+                    $dashboardItem, $counter, failedCount;
 
                 failedCount = Array.isArray(jenkinsBuildData['failed_runs']) ? jenkinsBuildData['failed_runs'].length : 0
                 $dashboardItem = $screen.find('#' + jenkinsBuildData['name']);
@@ -71,7 +71,7 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
                     $($dashboardItem.find('.pie')[0]).hide();
                 }
 
-                if (jenkinsBuildData['status'] === 'FAILURE') {
+                if (jenkinsBuildData['status'] === 'FAILURE' || jenkinsBuildData['status'] === 'UNSTABLE') {
                     $dashboardItem.find('h2').addClass('failed');
                 } else {
                     $dashboardItem.find('h2').addClass('success');
