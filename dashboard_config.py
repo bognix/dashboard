@@ -1,8 +1,11 @@
+import json
+
 class DashboardConfig:
-	config_location = 'config.json'
+	
+	CONFIG_LOCATION = 'config.json'
+	
+	def __init__(self, *args, **kwargs):
+		self.config_json = json.load(open(self.CONFIG_LOCATION))
 
-	def __init__(*args, **kwargs):
-		config_json = json.load(open(self.config_location))
-
-	def get_config():
-		return config_json
+	def get_config(self):
+		return self.config_json

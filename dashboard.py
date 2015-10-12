@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 from flask.templating import render_template
 from jenkinsapi.custom_exceptions import NoBuildData
 import os
-import DashboardConfig
+from dashboard_config import DashboardConfig
 
 from jenkinsapi.jenkins import Jenkins
 from jenkinsapi.artifact import Artifact
