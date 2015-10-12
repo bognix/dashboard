@@ -1,6 +1,6 @@
 import json
 import datetime
-from flask import Flask, jsonify
+from flask import Flask, jsonify, g
 from flask.templating import render_template
 from jenkinsapi.custom_exceptions import NoBuildData
 import os
@@ -15,25 +15,32 @@ app = Flask(__name__)
 
 
 def get_jenkins(jenkins_name):
-    jenkins_config = get_config()['sources'][jenkins_name]
+    jenkins_config = get_dashboard_config()['sources'][jenkins_name]
 
     if jenkins_config.has_key('secured') and jenkins_config['secured']:
         return Jenkins(jenkins_config['url'], username=os.environ['JENKINS_USER'], password=os.environ['JENKINS_PASS'])
 
     return Jenkins(jenkins_config['url'])
 
-def get_config():
-    return DashboardConfig().get_config()
+def get_dashboard_config():
+    if not hasattr(g, 'dashboard_config'):
+        ctx = app.app_context()
+        dashboard_config = g.dashboard_config = DashboardConfig().get_config()
+        ctx.push()
+        return dashboard_config
+    else:
+        return g.dashboard_config
+
 
 def get_item_config(build_name):
-    config = get_config()
+    config = get_dashboard_config()
     if config.has_key('items') and config['items'].has_key(build_name):
         return config['items'][build_name]
     return {}
 
 @app.route('/')
 def index():
-    config_data = get_config()
+    config_data = get_dashboard_config()
     screens_count = len(config_data['screens'])
     return render_template(
         'index.html', config=config_data, json_config=json.dumps(config_data), screens_count=screens_count)
