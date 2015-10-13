@@ -1,10 +1,11 @@
 import json
 import datetime
-from flask import Flask, jsonify, g
+from flask import Flask, jsonify
 from flask.templating import render_template
 from jenkinsapi.custom_exceptions import NoBuildData
 import os
 from dashboard_config import DashboardConfig
+from werkzeug.contrib.cache import SimpleCache
 
 from jenkinsapi.jenkins import Jenkins
 from jenkinsapi.artifact import Artifact
@@ -23,13 +24,11 @@ def get_jenkins(jenkins_name):
     return Jenkins(jenkins_config['url'])
 
 def get_dashboard_config():
-    if not hasattr(g, 'dashboard_config'):
-        ctx = app.app_context()
-        dashboard_config = g.dashboard_config = DashboardConfig().get_config()
-        ctx.push()
-        return dashboard_config
-    else:
-        return g.dashboard_config
+    dashboard_config = cache.get('dashboard_config')
+    if dashboard_config is None:
+        dashboard_config = DashboardConfig().get_config()
+        cache.set('dashboard_config', dashboard_config, timeout=1440 * 60)
+    return dashboard_config
 
 
 def get_item_config(build_name):
@@ -104,4 +103,5 @@ def get_time_ago(run_date):
 
 if __name__ == '__main__':
     app.debug = True
+    cache = SimpleCache()
     app.run()
