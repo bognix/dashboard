@@ -1,0 +1,62 @@
+{
+  "screens": [
+    {
+      "id": "Widgets1",
+      "data_source": "jenkins",
+      "screen_items": [
+        "Widget-AllTags",
+        "Widget-GoogleForm",
+        "Widget-Polldaddy",
+        "Widget-Pollsnack",
+        "Widget-SoundCloud",
+        "Widget-Spotify",
+        "Widget-Twitter",
+        "Widget-VK",
+        "Widget-Weibo"
+      ],
+      "update_interval": 360000
+    },
+    {
+      "id": "MercuryPhantomas",
+      "data_source": "jenkins",
+      "screen_items": [
+        "Mercury-Phantomas"
+      ],
+      "update_interval": 360000
+    },
+    {
+      "id": "GlobalNavigation",
+      "data_source": "jenkins",
+      "screen_items": [
+        "Toolbar-CustomizeToolbar",
+        "SpecialPage-ThemeDesigner",
+        "SpecialPage-CuratedContentTests",
+        "OasisMainPage-CuratedContentModal",
+        "GlobalNavigation-GlobalNavigationWikiaLogo",
+        "GlobalNavigation-GlobalNavigationSearch",
+        "GlobalNavigation-GlobalNavigationScrollAction",
+        "GlobalNavigation-GlobalNavigationHubLinks",
+        "GlobalNavigation-GlobalNavigationClicktracking",
+        "GlobalNavigation-GameStarLogo",
+        "ArticleCrud-ArticleTOC"
+      ],
+      "update_interval": 360000
+    }
+  ],
+  "sources": {
+    "type": "jenkins",
+    "jenkins": {
+      "url": "http://qa-s2:8080"
+    },
+    "type": "jenkins",
+    "secured": true,
+    "jenkins-api": {
+      "url": "http://api-test-s1:8080"
+    }
+  },
+  "items": {
+    "Mercury-Phantomas": {
+      "artifact": "http://qa-s2:8080/view/Mercury/job/Mercury-Phantomas/ws/log/output"
+    }
+  }
+}
