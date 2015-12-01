@@ -3,6 +3,7 @@ from jenkinsapi.jenkins import Jenkins
 from jenkinsapi.custom_exceptions import NoBuildData
 from jenkinsapi.artifact import Artifact
 from requests.exceptions import ConnectionError
+import datetime
 
 
 class JenkinsWrapper:
@@ -37,12 +38,12 @@ class JenkinsWrapper:
 		failed_runs = []
 		return_val = {
 			'name': build_name,
-			'status': last_build.get_status(),    
-			'hours_ago': get_time_ago(last_build.get_timestamp()),
+			'status': last_build.get_status(),
+			'hours_ago': self.get_time_ago(last_build.get_timestamp()),
 		}
 
-		if item_config.has_key('artifact'):
-			output = Artifact('output', item_config['artifact'], last_build).get_data()
+		if build_config.has_key('artifact'):
+			output = Artifact('output', build_config['artifact'], last_build).get_data()
 			return_val['artifact_output'] = output
 		else:
 			has_next = True
@@ -65,7 +66,7 @@ class JenkinsWrapper:
 		return_val['failure_percentage'] = len(failed_runs) * 100 / child_runs_count if (child_runs_count != 0) else 100
 
 		try:
-			last_success = get_time_ago(build.get_last_stable_build().get_timestamp()),
+			last_success = self.get_time_ago(build.get_last_stable_build().get_timestamp()),
 		except NoBuildData:
 			last_success = '???'
 
@@ -73,6 +74,6 @@ class JenkinsWrapper:
 
 		return return_val
 
-		def get_time_ago(run_date):
-			return int((datetime.datetime.utcnow().replace(tzinfo=None)
-				- run_date.replace(tzinfo=None)).total_seconds() / 3600)
+	def get_time_ago(self, run_date):
+		return int((datetime.datetime.utcnow().replace(tzinfo=None)
+			- run_date.replace(tzinfo=None)).total_seconds() / 3600)
