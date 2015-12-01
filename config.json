@@ -23,6 +23,11 @@
         "Mercury-Phantomas"
       ],
       "update_interval": 360000
+    },
+    {
+      "id": "MercuryPerformance",
+      "data_source": "iframe",
+      "url": "http://www.wp.pl"
     }
   ],
   "sources": {

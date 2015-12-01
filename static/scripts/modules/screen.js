@@ -1,4 +1,4 @@
-define('screen', ['jquery', 'jenkins', 'spinner', 'mustache', 'pie-chart'], function($, jenkins, spinner, mustache, pieChart) {
+define('screen', ['jquery', 'jenkins', 'spinner', 'mustache', 'pie-chart', 'iframe'], function($, jenkins, spinner, mustache, pieChart, iframe) {
     'use strict';
 
     function createScreen(screenConfig) {
@@ -7,6 +7,8 @@ define('screen', ['jquery', 'jenkins', 'spinner', 'mustache', 'pie-chart'], func
             case 'jenkins-api':
                 jenkins.createItems(screenConfig, pieChart.drawPies);
                 break;
+            case 'iframe':
+                iframe.createIframe(screenConfig);
             default:
                 throw new Error('Wrong data source provided');
                 break;
