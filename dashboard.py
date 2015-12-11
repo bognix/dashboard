@@ -9,6 +9,7 @@ from werkzeug.contrib.cache import SimpleCache
 
 
 app = Flask(__name__)
+cache = SimpleCache()
 
 
 def get_jenkins_instance(jenkins_name):
@@ -43,10 +44,10 @@ def index():
 @app.route('/jenkins_results/<jenkins_name>/<build_name>', methods=['GET'])
 def get_build_data(jenkins_name, build_name):
     item_config = get_item_config(build_name)
+
     return jsonify(get_jenkins_instance(jenkins_name).get_build_results(build_name, item_config))
 
 
 if __name__ == '__main__':
     app.debug = True
-    cache = SimpleCache()
     app.run()
