@@ -25,22 +25,10 @@
       "update_interval": 360000
     },
     {
-      "id": "GlobalNavigation",
-      "data_source": "jenkins",
-      "screen_items": [
-        "Toolbar-CustomizeToolbar",
-        "SpecialPage-ThemeDesigner",
-        "SpecialPage-CuratedContentTests",
-        "OasisMainPage-CuratedContentModal",
-        "GlobalNavigation-GlobalNavigationWikiaLogo",
-        "GlobalNavigation-GlobalNavigationSearch",
-        "GlobalNavigation-GlobalNavigationScrollAction",
-        "GlobalNavigation-GlobalNavigationHubLinks",
-        "GlobalNavigation-GlobalNavigationClicktracking",
-        "GlobalNavigation-GameStarLogo",
-        "ArticleCrud-ArticleTOC"
-      ],
-      "update_interval": 360000
+
+      "id": "MercuryPerformance",
+      "data_source": "iframe",
+      "url": "http://graph-s3.wikia-prod/grafana/#/dashboard/db/mercury-performance-production"
     }
   ],
   "sources": {
