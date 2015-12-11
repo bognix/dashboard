@@ -27,7 +27,7 @@
     {
       "id": "MercuryPerformance",
       "data_source": "iframe",
-      "url": "http://www.wp.pl"
+      "url": "http://graph-s3.wikia-prod/grafana/#/dashboard/db/mercury-performance-production"
     }
   ],
   "sources": {

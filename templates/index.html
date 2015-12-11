@@ -44,6 +44,11 @@
         </div>
     </script>
     {% endraw %}
+    {% raw %}
+    <script id="iframeResult" type="x-tmpl-mustache">
+        <iframe src={{url}} scrolling="no"></iframe>
+    </script>
+    {% endraw %}
     <script data-main="static/scripts/main" src="{{ url_for('static', filename='scripts/external/requirejs/require.js') }}"></script>
     </body>
 </html>

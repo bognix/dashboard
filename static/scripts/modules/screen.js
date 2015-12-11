@@ -9,6 +9,7 @@ define('screen', ['jquery', 'jenkins', 'spinner', 'mustache', 'pie-chart', 'ifra
                 break;
             case 'iframe':
                 iframe.createIframe(screenConfig);
+                break;
             default:
                 throw new Error('Wrong data source provided');
                 break;
