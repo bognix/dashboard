@@ -41,11 +41,15 @@ def index():
         'index.html', config=config_data, json_config=json.dumps(config_data), screens_count=screens_count)
 
 
-@app.route('/jenkins_results/<jenkins_name>/<build_name>', methods=['GET'])
-def get_build_data(jenkins_name, build_name):
+@app.route('/jenkins_results/<jenkins_name>/<build_name>/', defaults={'build_type': 'grouped'},
+    methods=['GET'])
+@app.route('/jenkins_results/<jenkins_name>/<build_name>/<build_type>', methods=['GET'])
+def get_build_data(jenkins_name, build_name, build_type):
     item_config = get_item_config(build_name)
+    jenkins_instance = get_jenkins_instance(jenkins_name)
+    result = jenkins_instance.get_build_results(build_name, build_config=item_config, type=build_type)
+    return jsonify(result)
 
-    return jsonify(get_jenkins_instance(jenkins_name).get_build_results(build_name, item_config))
 
 
 if __name__ == '__main__':

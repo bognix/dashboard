@@ -1,12 +1,11 @@
 define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustache) {
     'use strict';
 
-    var template = $('#jenkinsResult').html(),
-        jenkinsName;
+    var template, jenkinsName;
 
-    function getRequest(groupName) {
+    function getRequest(groupName, type) {
         return $.ajax({
-            url: 'jenkins_results/' + jenkinsName + '/' + groupName,
+            url: 'jenkins_results/' + jenkinsName + '/' + groupName + '/' + (type || '') ,
             dataType: 'json'
         });
     }
@@ -14,19 +13,33 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
     function createItems(screenConfig, cb) {
         var $screen = $(document.getElementById(screenConfig['id'])),
             items = screenConfig['screen_items'],
-            updateInterval = screenConfig['update_interval'];
+            updateInterval = screenConfig['update_interval'],
+            templateID;
+
+        switch (screenConfig.type) {
+            case 'grouped':
+                templateID = 'jenkinsResult';
+                break;
+            case 'single':
+                templateID = 'jenkinsReslutSingle';
+                break;
+            default:
+                templateID = 'jenkinsResult';
+                break;
+        }
 
         jenkinsName = screenConfig['data_source'];
+        template = $(document.getElementById(templateID)).html();
 
         if (items) {
             for (var i=0; i<items.length; i++) {
-                createItem(items[i], $screen, updateInterval, cb);
+                createItem(items[i], $screen, updateInterval, screenConfig.type, cb);
             }
         }
     }
 
-    function createItem(item, $screen, updateInterval, cb) {
-        var request = getRequest(item);
+    function createItem(item, $screen, updateInterval, type, cb) {
+        var request = getRequest(item, type);
 
         request.done(function(jenkinsBuildData) {
             var rendered = mustache.render(template, jenkinsBuildData),

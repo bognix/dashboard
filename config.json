@@ -14,6 +14,16 @@
         "Widget-VK",
         "Widget-Weibo"
       ],
+      "type": "grouped",
+      "update_interval": 360000
+    },
+    {
+      "id": "MercuryEmulators",
+      "data_source": "jenkins",
+      "screen_items": [
+        "Mercury-TESTS-Emulators"
+      ],
+      "type": "single",
       "update_interval": 360000
     },
     {

@@ -2,7 +2,7 @@ define('screen', ['jquery', 'jenkins', 'spinner', 'mustache', 'pie-chart', 'ifra
     'use strict';
 
     function createScreen(screenConfig) {
-        switch (screenConfig['data_source']) {
+        switch (screenConfig.data_source) {
             case 'jenkins':
             case 'jenkins-api':
                 jenkins.createItems(screenConfig, pieChart.drawPies);
