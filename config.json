@@ -15,7 +15,7 @@
         "Widget-Weibo"
       ],
       "type": "grouped",
-      "update_interval": 360000
+      "update_interval": 3600000
     },
     {
       "id": "MercuryEmulators",
@@ -23,7 +23,7 @@
       "screen_items": [
         "Mercury-TESTS-Emulators"
       ],
-      "type": "single",
+      "template": "jenkinsResultSingle",
       "update_interval": 360000
     },
     {
@@ -32,7 +32,7 @@
       "screen_items": [
         "Mercury-Phantomas"
       ],
-      "update_interval": 360000
+      "update_interval": 3600000
     },
     {
 
@@ -55,6 +55,10 @@
   "items": {
     "Mercury-Phantomas": {
       "artifact": "http://qa-s2:8080/view/Mercury/job/Mercury-Phantomas/ws/log/output"
+    },
+    "Mercury-TESTS-Emulators": {
+      "target_env": "preview",
+      "type": "single"
     }
   }
 }
