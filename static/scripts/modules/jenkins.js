@@ -48,7 +48,9 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
 
             if (jenkinsBuildData['status'] === 'FAILURE' || jenkinsBuildData['status'] === 'UNSTABLE') {
                 $dashboardItem.find('h2').addClass('failed');
-            } else {
+            } else if (jenkinsBuildData['status'] === 'ABORTED') {
+                $dashboardItem.find('h2').addClass('ABORTED');
+            } else if (jenkinsBuildData['status'] === 'SUCCESS') {
                 $dashboardItem.find('h2').addClass('success');
             }
             cb();

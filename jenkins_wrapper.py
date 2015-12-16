@@ -95,7 +95,7 @@ class JenkinsWrapper:
             last_build = build.get_last_build()
 
         if last_build is not None:
-            last_build_number = build.get_last_buildnumber()
+            last_build_number = last_build.get_number()
 
             last_build_status = last_build.get_status()
             return_val['status'] = last_build_status
@@ -121,7 +121,7 @@ class JenkinsWrapper:
                             aborted_runs.append({
                                 'name': current_build.name.split('\xbb')[1].split(',')[0]
                             })
-                        else:
+                        elif current_build.get_status() == 'SUCCESS':
                             succeded_runs.append({
                                 'name': current_build.name.split('\xbb')[1].split(',')[0]
                             })
@@ -134,6 +134,12 @@ class JenkinsWrapper:
             return_val['is_running'] = last_build.is_running()
             return_val['has_failed_runs'] = (len(failed_runs) != 0)
             return_val['has_aborted_runs'] = (len(aborted_runs) != 0)
+
+            if len(aborted_runs) != 0:
+                return_val['status'] = 'ABORTED'
+            elif last_build.is_running():
+                return_val['status'] = None
+
             if build_config.has_key('target_env') is not None:
                 return_val['environment'] = build_config['target_env']
 

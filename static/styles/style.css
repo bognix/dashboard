@@ -155,24 +155,53 @@ circle {
     width: 85%;
 }
 
-.last-run {
-    background: url("/static/images/last-run.png") no-repeat center;
-}
-
-.hoursglass {
-    background: url("/static/images/hoursglass.gif") no-repeat center;
-}
-
-.last-success {
-    background: url("/static/images/success-icon.png") no-repeat center;
-}
-
 .icon {
     background-size: 32px;
     width: 32px;
     height: 32px;
     display: inline-block;
     float: left;
+}
+
+.last-run {
+    background: url("/static/images/last-run.png") no-repeat center;
+    background-size: 32px
+}
+
+.running {
+    background: url("/static/images/running.gif") no-repeat center;
+    float: none;
+    height: 80px;
+    width: 80px;
+    background-size: 80px;
+}
+
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.0;}
+}
+
+.running-container {
+    right: 50px;
+    top: 50px;
+    position: absolute;
+    
+}
+
+.running-container span {
+    text-decoration: blink;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-direction: alternate;
+
+    font-size: 18px;
+}
+
+.last-success {
+    background: url("/static/images/success-icon.png") no-repeat center;
+    background-size: 32px
 }
 
 .value {
