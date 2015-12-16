@@ -17,7 +17,6 @@ define('jenkins', ['jquery', 'spinner', 'mustache'], function($, spinner, mustac
             templateID = screenConfig.template || 'jenkinsResult',
             template;
 
-        console.log(templateID);
         jenkinsName = screenConfig['data_source'];
         template = $(document.getElementById(templateID)).html();
 

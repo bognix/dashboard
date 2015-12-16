@@ -38,7 +38,8 @@
 
       "id": "MercuryPerformance",
       "data_source": "iframe",
-      "url": "http://graph-s3.wikia-prod/grafana/#/dashboard/db/mercury-performance-production"
+      "url": "http://graph-s3.wikia-prod/grafana/#/dashboard/db/mercury-performance-tv-dashboard",
+      "update_interval": 360000
     }
   ],
   "sources": {
