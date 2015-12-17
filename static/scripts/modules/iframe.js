@@ -8,9 +8,13 @@ define('iframe', ['jquery', 'spinner', 'mustache'], function($, spinner, mustach
             container = $(document.getElementById(config['id']));
 
             container.html(rendered);
-
+            console.log(config['update_interval']);
             setInterval(function() {
-                document.getElementById(config['id']).querySelector('iframe').src = config.url;
+                rendered = mustache.render(template, {
+                    url: config.url
+                }),
+                container = $(document.getElementById(config['id']));
+                container.html(rendered);
             }, config['update_interval'])
     }
 
