@@ -134,6 +134,8 @@ class JenkinsWrapper:
             return_val['is_running'] = last_build.is_running()
             return_val['has_failed_runs'] = (len(failed_runs) != 0)
             return_val['has_aborted_runs'] = (len(aborted_runs) != 0)
+            return_val['failed_count'] = len(failed_runs)
+            return_val['aborted_count'] = len(aborted_runs)
 
             if len(aborted_runs) != 0:
                 return_val['status'] = 'ABORTED'

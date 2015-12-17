@@ -250,7 +250,9 @@ iframe {
 header {
     text-align: center;
     margin-bottom: 50px;
-    height: 50px;
+    min-height: 50px;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
 }
 
 header h3 {
@@ -260,14 +262,17 @@ header h3 {
 
 header.UNSTABLE, header.FAILURE {
     color: #FF0000;
+    border-color: #FF0000;
 }
 
 header.ABORTED {
     color: #696969;
+    border-color: #696969;
 }
 
 header.SUCCESS {
     color: #228B22;
+    border-color: #228B22;
 }
 
 .hourglass.icon {

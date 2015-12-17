@@ -56,13 +56,13 @@
             {{/environment}}
             {{#is_running}}
                 <div class="running-container">
-                    <span>RUNNING RIGHT NOW</span>
                     <div class="running icon"></div>
+                    <span>RUNNING...</span>
                 </div>
             {{/is_running}}
         </header>
         <div class="left-column">
-            <h4>FAILED RUNS</h4>
+            <h4>({{failed_count}}) FAILED RUNS</h4>
             {{#has_failed_runs}}
                 <ul>
                 {{#failed_runs}}
@@ -71,8 +71,8 @@
                 </ul>
             {{/has_failed_runs}}
         </div>
-        <div class="right-columnn">
-            <h4>ABORTED RUNS</h4>
+        <div class="left-columnn">
+            <h4>({{aborted_count}}) ABORTED RUNS</h4>
             {{#has_aborted_runs}}
                 <ul>
                 {{#aborted_runs}}

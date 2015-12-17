@@ -58,7 +58,7 @@
       "artifact": "http://qa-s2:8080/view/Mercury/job/Mercury-Phantomas/ws/log/output"
     },
     "Mercury-TESTS-Emulators": {
-      "target_env": "preview",
+      "target_env": "sandbox-mercurydev",
       "type": "single"
     }
   }
