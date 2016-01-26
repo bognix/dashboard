@@ -25,6 +25,9 @@
             {{#artifact_output}}
                 <pre> {{artifact_output}} </pre>
             {{/artifact_output}}
+            {{#image}}
+                <div class="{{image}} image"></div>
+            {{/image}}
             {{#has_failed_runs}}
                 <div class="failed-tests-label">Failed tests:</div>
                 <div class="jenkins-details">

@@ -1,6 +1,6 @@
 import os
 from jenkinsapi.jenkins import Jenkins
-from jenkinsapi.custom_exceptions import NoBuildData
+from jenkinsapi.custom_exceptions import NoBuildData, JenkinsAPIException
 from jenkinsapi.artifact import Artifact
 from requests.exceptions import ConnectionError
 import datetime
@@ -49,8 +49,11 @@ class JenkinsWrapper:
         }
 
         if build_config.has_key('artifact'):
-            output = Artifact('output', build_config['artifact'], last_build).get_data()
-            return_val['artifact_output'] = output
+            try:
+                output = Artifact('output', build_config['artifact'], last_build).get_data()
+                return_val['artifact_output'] = output
+            except JenkinsAPIException:
+                return_val['image'] = 'happy'
         else:
             has_next = True
             while has_next:

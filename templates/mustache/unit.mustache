@@ -1,0 +1,10 @@
+<header class={{status}}>
+    <h2>{{name}}</h2>
+    <h3><div class="last-run icon"></div><span class="value bold">{{hours_ago}}h ago</span></h3>
+    {{#is_running}}
+        <div class="running-container">
+            <div class="running icon"></div>
+            <span>RUNNING...</span>
+        </div>
+    {{/is_running}}
+</header>

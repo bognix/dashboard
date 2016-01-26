@@ -287,3 +287,17 @@ header.SUCCESS {
 .MercuryEmulators .right-column {
     width: 50%;
 }
+
+.image {
+    width: initial;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.happy {
+    background-image: url("/static/images/happy.jpg")
+}
