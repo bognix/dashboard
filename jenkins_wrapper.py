@@ -54,6 +54,9 @@ class JenkinsWrapper:
                 return_val['artifact_output'] = output
             except JenkinsAPIException:
                 return_val['image'] = 'happy'
+        elif build_config.has_key('simple'):
+            if last_build.get_status() == 'SUCCESS':
+                return_val['image'] = 'happy'
         else:
             has_next = True
             while has_next:

@@ -30,7 +30,7 @@
       "id": "MercuryPhantomas",
       "data_source": "jenkins",
       "screen_items": [
-        "Mercury-Phantomas"
+        "Mercury-Phantomas", "prerender-health-checks"
       ],
       "update_interval": 3600000
     },
@@ -56,6 +56,9 @@
   "items": {
     "Mercury-Phantomas": {
       "artifact": "http://qa-s2:8080/view/Mercury/job/Mercury-Phantomas/ws/log/output"
+    },
+    "prerender-health-checks": {
+      "simple": true
     },
     "Mercury-TESTS-Emulators": {
       "target_env": "sandbox-mercurydev",
